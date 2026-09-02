@@ -2,7 +2,7 @@
 :root {
     --bg-main: #0a0f1d;
     --bg-card: #111827;
-    --bg-card-hover: #1f293d;
+    --bg-card-hover: #2a303d60;
     --accent-color: #38bdf8;
     --accent-glow: rgba(56, 189, 248, 0.25);
     --text-primary: #f8fafc;
@@ -27,16 +27,17 @@ body {
     overflow-x: hidden;
 }
 
-/* --- NAVBAR RESPONSIF & LOGO AFH --- */
+/* --- NAVBAR TRANSPARAN (GLASSMORPHISM) --- */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--nav-bg);
+    background: rgba(10, 15, 29, 0.65); 
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition);
 }
 
@@ -136,8 +137,12 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('beranda.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     padding: 120px 24px 60px;
-    background-image: linear-gradient(rgba(10, 15, 29, 0.4), rgba(10, 15, 29, 0.4)), url('beranda.jpg');
 }
 
 .hero-container-center {
@@ -145,16 +150,19 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 480px;
+    max-width: 720px;
     width: 100%;
     margin: 0 auto;
 }
+
 .hero-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    background: rgba(17, 24, 39, 0.65); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     width: 100%;
     margin-bottom: 24px;
     text-align: left;
@@ -164,18 +172,19 @@ section {
     font-size: 1.1rem;
     letter-spacing: 1px;
     margin-bottom: 8px;
+    color: var(--text-primary);
 }
 
 .hero-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    line-height: 1.7;
 }
 
 .profile-card-img {
     width: 100%;
     height: auto;
-    max-height: 240px;
+    max-height: 320px;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 20px;
@@ -202,15 +211,21 @@ section {
     font-size: 0.95rem;
 }
 
+/* --- GAYA TOMBOL TRANSPARAN (GLASSMORPHISM) --- */
 .btn-primary {
-    background: var(--accent-color);
-    color: #0f172a;
-    box-shadow: 0 4px 20px var(--accent-glow);
+    background: rgba(0, 0, 0, 0.65);
+    color: var(--text-primary);
+    border: 1px solid #000000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    background: #7dd3fc;
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .section-header {
@@ -231,15 +246,15 @@ section {
     font-weight: 800;
     letter-spacing: -0.5px;
 }
+
 /* --- PENGALAMAN SECTION (TIMELINE) --- */
 #pengalaman {
-    /* Mengganti background-color dengan background-image + overlay gelap */
     background-image: url('pengalaman.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Opsional: memberikan efek parallax saat di-scroll */
-    padding: 80px 0; /* Memberi ruang atas dan bawah */
+    background-attachment: fixed;
+    padding: 80px 0;
 }
 
 .experience-timeline {
@@ -271,8 +286,8 @@ section {
 }
 
 .timeline-content {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    background: rgba(5, 8, 14, 0.75);
+    border: 0px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
     transition: var(--transition);
@@ -304,13 +319,18 @@ section {
 
 .timeline-desc {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: #ffffff;
     line-height: 1.6;
 }
 
 /* 2. KEAHLIAN SECTION */
 #keahlian {
-    background-image:  url('keahlian.jpg');
+    background-image: url('keahlian.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 150px 0;
 }
 
 .skills-grid {
@@ -319,18 +339,11 @@ section {
     gap: 24px;
 }
 
-.skill-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 24px;
-    transition: var(--transition);
-}
-
 .skill-card:hover {
     transform: translateY(-4px);
     border-color: rgba(56, 189, 248, 0.3);
     background: var(--bg-card-hover);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .skill-icon {
@@ -346,7 +359,7 @@ section {
 
 .skill-list {
     list-style: none;
-    color: var(--text-secondary);
+    color: #ffffff;
     font-size: 0.95rem;
 }
 
@@ -365,19 +378,16 @@ section {
 /* 3. PROYEK SECTION */
 #proyek {
     background-image: url('project.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 80px 0;
 }
 
-/* Mengubah grid agar 2 kolom rapi di PC/Laptop dan otomatis menyesuaikan di mobile */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2x2 layout pada layar lebar */
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-}
-
-@media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: 1fr; /* 1 kolom penuh pada layar HP */
-    }
 }
 
 .project-card {
@@ -413,11 +423,11 @@ section {
 }
 
 .project-desc {
-    color: var(--text-secondary);
+    color: #ffffff;
     font-size: 0.95rem;
 }
 
-/* --- ANIMASI STAGGER PROYEK (TAMBAHKAN KARTU KE-4) --- */
+/* --- ANIMASI STAGGER PROYEK --- */
 .skills-grid .skill-card:nth-child(2),
 .project-grid .project-card:nth-child(2) {
     transition-delay: 0.15s;
@@ -428,14 +438,18 @@ section {
     transition-delay: 0.3s;
 }
 
-/* Delay animasi untuk proyek ke-4 */
 .project-grid .project-card:nth-child(4) {
     transition-delay: 0.45s;
 }
 
 /* 4. KONTAK SECTION */
 #kontak {
-    background-image:  url('digital kontak.jpg');
+    background-image: url('digital kontak.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 80px 0;
 }
 
 .contact-box {
@@ -444,11 +458,12 @@ section {
     border-radius: 24px;
     padding: 48px;
     text-align: center;
-    .contact-box p {
-    color: var(--text-primary); /* Mengubah warna font menjadi putih */
+}
+
+.contact-box p {
+    color: var(--text-primary);
     max-width: 600px;
     margin: 0 auto;
-}
 }
 
 .contact-box h2 {
@@ -473,28 +488,30 @@ footer {
     font-size: 0.9rem;
     background-color: var(--bg-main);
 }
+
 /* --- PENGATURAN GAMBAR PROYEK --- */
 .project-img-wrapper {
     width: 100%;
-    height: 200px;             /* Tinggi area gambar */
-    overflow: hidden;          /* Menyembunyikan gambar yang meluap saat zoom */
+    height: 200px;
+    overflow: hidden;
     border-bottom: 1px solid var(--border-color);
 }
 
 .project-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;         /* Gambar menyesuaikan area tanpa distorsi/gepeng */
-    object-position: top center; /* Fokus tampilan gambar di bagian atas */
+    object-fit: cover;
+    object-position: top center;
     transition: transform 0.5s ease;
 }
 
-/* Efek Zoom Halus Saat Card Di-hover */
 .project-card:hover .project-img {
     transform: scale(1.08);
 }
-/* --- MEDIA QUERIES --- */
+
+/* --- MEDIA QUERIES RESPONSIF UNTUK HP (MOBILE) --- */
 @media (max-width: 768px) {
+    /* Navbar Mobile */
     .hamburger {
         display: block;
     }
@@ -504,7 +521,9 @@ footer {
         right: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background: var(--bg-main);
+        background: rgba(10, 15, 29, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
         justify-content: center;
         gap: 32px;
@@ -513,15 +532,69 @@ footer {
     .nav-links.show {
         right: 0;
     }
+
+    /* MENJAGA ANIMASI BACKGROUND DI HP SAMPAI SEPERTI DESKTOP */
+    section, .hero, #pengalaman, #keahlian, #proyek, #kontak {
+        background-attachment: fixed !important;
+        background-size: cover;
+    }
+
+    /* Penyesuaian Spacing & Padding Section di HP */
+    section {
+        padding: 60px 16px;
+    }
     .hero {
-        padding-top: 100px;
+        padding: 100px 16px 40px;
+    }
+    #keahlian {
+        padding: 80px 16px;
+    }
+    
+    /* Penyesuaian Ukuran Font Header di HP */
+    .section-title {
+        font-size: 1.75rem;
+    }
+    .hero-card {
+        padding: 20px;
+    }
+
+    /* Timeline Pengalaman di HP */
+    .experience-timeline {
+        padding-left: 20px;
+        margin-left: 10px;
+    }
+    .timeline-dot {
+        left: -29px;
+    }
+    .timeline-content {
+        padding: 16px;
+    }
+
+    /* Grid Layout HP */
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Tombol & Kontak Box */
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
     .contact-box {
-        padding: 32px 20px;
+        padding: 32px 16px;
     }
-} /* Kurung tutup media query dipindahkan ke sini */
+}
 
-/* --- EFEK ANIMASI SCROLL (DITARUH DI LUAR MEDIA QUERY) --- */
+/* --- EFEK ANIMASI SCROLL --- */
 .fade-in-element {
     opacity: 0;
     transform: translateY(30px);
@@ -533,14 +606,4 @@ footer {
 .fade-in-element.appear {
     opacity: 1 !important;
     transform: translateY(0) !important;
-}
-
-.skills-grid .skill-card:nth-child(2),
-.project-grid .project-card:nth-child(2) {
-    transition-delay: 0.15s;
-}
-
-.skills-grid .skill-card:nth-child(3),
-.project-grid .project-card:nth-child(3) {
-    transition-delay: 0.3s;
 }
